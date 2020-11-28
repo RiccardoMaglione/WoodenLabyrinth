@@ -11,6 +11,7 @@ public class Accelerometer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Sensibility = PlayerPrefs.GetInt("Sensibility");
     }
 
     void Update()
