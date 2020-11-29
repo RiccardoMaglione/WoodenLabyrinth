@@ -16,13 +16,13 @@ public class Accelerometer : MonoBehaviour
 
     void Update()
     {
-        if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
-        {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-            Vector3 MovementBall = new Vector3(h, 0, v);
-            rb.AddForce(MovementBall * Speed * Time.deltaTime);
-        }
+        //if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        //{
+        //    float h = Input.GetAxis("Horizontal");
+        //    float v = Input.GetAxis("Vertical");
+        //    Vector3 MovementBall = new Vector3(h, 0, v);
+        //    rb.AddForce(MovementBall * Speed * Time.deltaTime);
+        //}
         if(Application.platform == RuntimePlatform.Android)
         {
             Vector3 MovementBall = new Vector3(Input.acceleration.x, 0, Input.acceleration.y);

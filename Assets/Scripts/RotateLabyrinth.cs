@@ -8,9 +8,12 @@ public class RotateLabyrinth : MonoBehaviour
 
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        transform.Rotate(Vector3.right * SpeedRotation * Time.deltaTime * v);
-        transform.Rotate(Vector3.back * SpeedRotation * Time.deltaTime * h);
+        //if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        //{
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+            transform.Rotate(Vector3.right * SpeedRotation * Time.deltaTime * v);
+            transform.Rotate(Vector3.back * SpeedRotation * Time.deltaTime * h);
+        //}
     }
 }
