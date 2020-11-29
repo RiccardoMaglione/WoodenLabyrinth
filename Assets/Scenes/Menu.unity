@@ -780,10 +780,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - Name: Theme
-    Clip: {fileID: 8300000, guid: 5180e524dc67ac84b931d962a38159d9, type: 3}
+    Clip: {fileID: 8300000, guid: 367f5643f4b6f2144a3faf18c1f6d005, type: 3}
     Volume: 1
     Pitch: 1
-    Loop: 0
+    Loop: 1
     Source: {fileID: 0}
 --- !u!4 &271998532
 Transform:

@@ -6,18 +6,24 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public GameObject Ball;
+    public Material NormalMaterial;
     public Material ShaderXRayMaterial;
+    Material[] matArrayStandard;
+
     private void Update()
     {
         if (PlayerPrefs.GetInt("ActiveShaderXray") == 1)
         {
-            Material[] matArrayStandard = Ball.GetComponent<MeshRenderer>().materials;
+            matArrayStandard = Ball.GetComponent<MeshRenderer>().materials;
             matArrayStandard[1] = ShaderXRayMaterial;
+            Ball.GetComponent<MeshRenderer>().materials = matArrayStandard;
+            print("1");
         }
         if (PlayerPrefs.GetInt("ActiveShaderXray") == 0)
         {
-            Material[] matArrayChange = Ball.GetComponent<MeshRenderer>().materials;
-            Destroy(matArrayChange[1]);
+            matArrayStandard = Ball.GetComponent<MeshRenderer>().materials;
+            matArrayStandard[1] = NormalMaterial;
+            Ball.GetComponent<MeshRenderer>().materials = matArrayStandard;
         }
     }
 
@@ -28,6 +34,7 @@ public class LevelManager : MonoBehaviour
 
     public void ReloadScene()
     {
+        FallInHole.CountFall = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
