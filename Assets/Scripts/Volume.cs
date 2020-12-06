@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Volume : MonoBehaviour
+namespace MaglioneFramework
 {
-    public Slider SliderVolume;
-    private void Start()
+    public class Volume : MonoBehaviour
     {
-        SliderVolume.value = PlayerPrefs.GetFloat("Volume");
-    }
-    private void Update()
-    {
-        ChangeVolume();
-    }
-    public void ChangeVolume()
-    {
-        AudioManager.Instance.Volume("Theme", SliderVolume);
+        public Slider SliderVolume;
+        
+        #region Lifecycle
+        private void Start()
+        {
+            SliderVolume.value = PlayerPrefs.GetFloat("Volume");        //Setto il valore del volume prendendolo dai playerprefs
+        }
+        private void Update()
+        {
+            ChangeVolume();
+        }
+        #endregion
+    
+        public void ChangeVolume()
+        {
+            AudioManager.Instance.Volume("Theme", SliderVolume);        //Setto il valore del volume prendendolo inserendolo nei playerprefs
+        }
     }
 }

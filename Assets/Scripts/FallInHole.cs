@@ -3,25 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FallInHole : MonoBehaviour
+namespace MaglioneFramework
 {
-    public static int CountFall = 0;
-    bool isEnter = false;
-    public Text FallText;
-    private void OnTriggerEnter(Collider other)
+    namespace WoodenLabyrinth
     {
-        if(isEnter == false)
+        public class FallInHole : MonoBehaviour
         {
-            CountFall += 1;
-            isEnter = true;
-            StartCoroutine(Timer());
-            FallText.text = "Fall in Hole: " + CountFall.ToString();
+            #region Variables
+            public static int CountFall = 0;                                    //Inizializzo il conteggio delle cadute
+            bool isEnter = false;                                               //Inizializzo il booleano che indica se può entrare e conteggiare la caduta
+            public Text FallText;                                               //Inizializzo il testo che indica al giocatore quanto volte è caduto
+            #endregion
+
+            private void OnTriggerEnter(Collider other)
+            {
+                if(isEnter == false)                                            //Se è falso
+                {
+                    CountFall += 1;                                             //Aumento di uno il numero delle cadute
+                    isEnter = true;                                             //Setto a vero per fare in modo che il count fall non salga ulteriormente
+                    StartCoroutine(Timer());                                    //Faccio partire la coroutine
+                    FallText.text = "Fall in Hole: " + CountFall.ToString();
+                }
+                print("CountFall" + CountFall);
+            }
+            IEnumerator Timer()
+            {
+                yield return new WaitForSeconds(5);
+                isEnter = false;                                                //Setto a falso per detectare una prossima caduta nella stessa buca
+            }
         }
-        print("CountFall" + CountFall);
-    }
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(5);
-        isEnter = false;
     }
 }

@@ -2,31 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Accelerometer : MonoBehaviour
+namespace MaglioneFramework
 {
-    public float Speed = 250;
-    public float Sensibility = 5;
-    Rigidbody rb;
-
-    void Start()
+    namespace WoodenLabyrinth
     {
-        rb = GetComponent<Rigidbody>();
-        Sensibility = PlayerPrefs.GetInt("Sensibility");
-    }
-
-    void Update()
-    {
-        //if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
-        //{
-        //    float h = Input.GetAxis("Horizontal");
-        //    float v = Input.GetAxis("Vertical");
-        //    Vector3 MovementBall = new Vector3(h, 0, v);
-        //    rb.AddForce(MovementBall * Speed * Time.deltaTime);
-        //}
-        if(Application.platform == RuntimePlatform.Android)
+        public class Accelerometer : MonoBehaviour
         {
-            Vector3 MovementBall = new Vector3(Input.acceleration.x, 0, Input.acceleration.y);
-            rb.AddForce(MovementBall * Speed * Sensibility * Time.deltaTime);
+            #region Variables
+            public float Speed = 250;                                                                           //Inizializzo la velocità
+            public float Sensibility = 5;                                                                       //Inizializzo la sensibilità
+            Rigidbody rb;                                                                                       //Inizializzo il rigidbody
+            #endregion
+                
+                    #region Lifecycle
+            void Start()
+            {
+                rb = GetComponent<Rigidbody>();                                                                 //Trovo il componente rigidbody
+                Sensibility = PlayerPrefs.GetInt("Sensibility");                                                //Prendo la sensibility del menù delle opzioni e la setto
+            }
+
+            void Update()
+            {
+                if(Application.platform == RuntimePlatform.Android)                                             //Se mi trovo in un ambiente android
+                {
+                    Vector3 MovementBall = new Vector3(Input.acceleration.x, 0, Input.acceleration.y);          //Calcolo il vettore movimento con i valori dell'accelerometro
+                    rb.AddForce(MovementBall * Speed * Sensibility * Time.deltaTime);                           //Applico una forza alla pallina per muoverla
+                }
+            }
+            #endregion
+        
         }
     }
 }

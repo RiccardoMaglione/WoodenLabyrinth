@@ -2,120 +2,99 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
+namespace MaglioneFramework
 {
-    #region Variables
-    public int IDCheckpoint;
-    public static int CountCheckpoint;
-    public static bool[] isEnter = new bool[8];
-    public bool[] InspectorIsEnter = new bool[8];
-    public bool[] InspectorCheckpointArray = new bool[8];
-    public static bool isWin = false;
-    public static bool[] CheckpointArray = new bool[8];
-    #endregion
-    public static bool CanGo = true;
-    private void Start()
+    namespace WoodenLabyrinth
     {
-        for (int i = 0; i < CheckpointArray.Length; i++)
+        public class Checkpoint : MonoBehaviour
         {
-            isEnter[i] = true;
-            CheckpointArray[i] = false;
-        }
-    }
+            #region Variables
+            public int IDCheckpoint;                                                //
+            public static int CountCheckpoint;                                      //
+            public bool[] InspectorIsEnter = new bool[8];                           //
+            public bool[] InspectorCheckpointArray = new bool[8];                   //
+            public static bool isWin = false;                                       //
+            public static bool CanGo = true;                                        //
+            public static bool[] isEnter = new bool[8];                             //
+            public static bool[] CheckpointArray = new bool[8];                     //
+            #endregion
 
-    void Update()
-    {
-        //for (int i = 0; i < CheckpointArray.Length; i++)               
-        //{
-        //    if(CheckpointArray[i] == true)                            
-        //    {
-        //        if(CheckpointArray[CheckpointArray.Length-1] == true && CountCheckpoint == CheckpointArray.Length)  
-        //        {
-        //            print("Hai vinto");
-        //            isWin = true;
-        //            for (int k = 0; k < CheckpointArray.Length; k++)    
-        //            {
-        //                CheckpointArray[k] = false;       
-        //                isEnter[k] = true;
-        //                CountCheckpoint = 0;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {                                                           
-        //        if(CheckpointArray[CheckpointArray.Length-1] == true)
-        //        {
-        //            for (int j = 0; j < CheckpointArray.Length; j++)
-        //            {
-        //                print("Hey");
-        //                CheckpointArray[j] = false;
-        //                isEnter[i] = true;
-        //                CountCheckpoint = 0;
-        //            }
-        //        }
-        //    }
-        //}
-        for (int n = 0; n < CheckpointArray.Length; n++)
-        {
-            InspectorCheckpointArray[n] = CheckpointArray[n];
-        }
-        for (int n = 0; n < isEnter.Length; n++)
-        {
-            InspectorIsEnter[n] = isEnter[n];
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "BallPlayer" && isEnter[IDCheckpoint] == true)
-        {
-            for (int i = 0; i < CheckpointArray.Length; i++)
+            #region Lifecycle
+            private void Start()
             {
-
-                if(this.IDCheckpoint == i && this.IDCheckpoint != 7)
+                for (int i = 0; i < CheckpointArray.Length; i++)                    //Ciclo for per settare dei valori standard
                 {
-                    print("Hey2");
-                    isEnter[IDCheckpoint] = false;
-                    CheckpointArray[IDCheckpoint] = true;
-                    CountCheckpoint++;
-                    print(CountCheckpoint);
+                    isEnter[i] = true;
+                    CheckpointArray[i] = false;
                 }
-                if (7 == this.IDCheckpoint)
+            }
+
+            void Update()
+            {
+                for (int n = 0; n < CheckpointArray.Length; n++)                    //Ciclo for per vedere da inspector dei valori statici
                 {
-                    CheckpointArray[IDCheckpoint] = true;
-                    if (CheckpointArray[i] == true)                            
+                    InspectorCheckpointArray[n] = CheckpointArray[n];
+                }
+                for (int n = 0; n < isEnter.Length; n++)                            //Ciclo for per vedere da inspector dei valori statici
+                {
+                    InspectorIsEnter[n] = isEnter[n];
+                }
+            }
+
+            /// <summary>
+            /// Verifico se la pallina passa un checkpoint e attraverso l'id verifico di quale si tratta, aumentando o resettando i valori
+            /// </summary>
+            /// <param name="other"></param>
+            private void OnTriggerEnter(Collider other)
+            {
+                if (other.gameObject.name == "BallPlayer" && isEnter[IDCheckpoint] == true)
+                {
+                    for (int i = 0; i < CheckpointArray.Length; i++)
                     {
-                        if(CheckpointArray[CheckpointArray.Length-1] == true && CountCheckpoint == CheckpointArray.Length-1)  
+
+                        if(this.IDCheckpoint == i && this.IDCheckpoint != 7)        //Se è qualsiasi checkpoint tranne l'ultimo, in base all'id, non lo identifico più a meno che non ci sia un reset, e aumento il count
                         {
-                            print("Hai vinto");
-                            isWin = true;
-                            for (int k = 0; k < CheckpointArray.Length; k++)    
-                            {
-                                CheckpointArray[k] = false;       
-                                isEnter[k] = true;
-                                CountCheckpoint = 0;
-                            }
+                            print("Hey2");
+                            isEnter[IDCheckpoint] = false;
+                            CheckpointArray[IDCheckpoint] = true;
+                            CountCheckpoint++;
+                            print(CountCheckpoint);
                         }
-                        else
+                        if (7 == this.IDCheckpoint)                                 //Se è l'ultimo checkpoint
                         {
-                            if (CheckpointArray[CheckpointArray.Length - 1] == true && CountCheckpoint != CheckpointArray.Length - 1)
+                            CheckpointArray[IDCheckpoint] = true;
+                            if (CheckpointArray[i] == true)                            
                             {
-                                for (int j = 0; j < CheckpointArray.Length; j++)
+                                if(CheckpointArray[CheckpointArray.Length-1] == true && CountCheckpoint == CheckpointArray.Length-1)                //Se l'ultimo checkpoint è stato attivato e il count è finito
                                 {
-                                    print("Hey");
-                                    CheckpointArray[j] = false;
-                                    isEnter[i] = true;
-                                    CountCheckpoint = 0;
+                                    print("Hai vinto");
+                                    isWin = true;                                                                                                   //Passo il bool che indica la vittoria
+                                    for (int k = 0; k < CheckpointArray.Length; k++)                                                                //Resetto i valori di tutti i checkpoint
+                                    {
+                                        CheckpointArray[k] = false;       
+                                        isEnter[k] = true;
+                                        CountCheckpoint = 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if (CheckpointArray[CheckpointArray.Length - 1] == true && CountCheckpoint != CheckpointArray.Length - 1)       //Se l'ultimo checkpoint è stato attivato e il count non è ancora finito
+                                    {
+                                        for (int j = 0; j < CheckpointArray.Length; j++)                                                            //Resetto i valori di tutti i checkpoint
+                                        {
+                                            print("Hey");
+                                            CheckpointArray[j] = false;
+                                            isEnter[i] = true;
+                                            CountCheckpoint = 0;
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
+            #endregion
         }
-        //else
-        //{
-        //    print("Hey3" + isEnter);
-        //}
     }
 }
