@@ -7,7 +7,7 @@ namespace MaglioneFramework
 {
     public class Volume : MonoBehaviour
     {
-        public Slider SliderVolume;
+        public Slider SliderVolume;                                     //Inizializzo slider per volume
         
         #region Lifecycle
         private void Start()
