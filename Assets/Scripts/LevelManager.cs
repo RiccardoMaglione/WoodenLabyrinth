@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
             matArrayStandard = Ball.GetComponent<MeshRenderer>().materials;
             matArrayStandard[1] = ShaderXRayMaterial;
             Ball.GetComponent<MeshRenderer>().materials = matArrayStandard;
-            print("1");
+            //print("1");
         }
         if (PlayerPrefs.GetInt("ActiveShaderXray") == 0)
         {
@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     public void ReloadScene()
     {
+        Checkpoint.CountCheckpoint = 0;
         FallInHole.CountFall = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

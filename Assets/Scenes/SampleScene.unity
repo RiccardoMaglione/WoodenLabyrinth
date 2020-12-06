@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 6
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &78967480
 BoxCollider:
@@ -341,7 +342,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78967477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -841,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 0
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &331580296
 BoxCollider:
@@ -862,7 +864,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331580293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1962,13 +1964,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.76632047, y: -0.15755902, z: 0.20533492, w: 0.5880184}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 105, y: -30, z: 0}
 --- !u!1 &741928701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 19.999878, y: 59.99997}
+  m_AnchoredPosition: {x: 20, y: 60}
   m_SizeDelta: {x: 250, y: 21.97}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &858205479
@@ -2260,6 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 5
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &862858080
 BoxCollider:
@@ -2281,7 +2284,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862858077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2554,6 +2557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 1
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &950022977
 BoxCollider:
@@ -2575,7 +2579,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950022974}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3297,7 +3301,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254303530}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad18482a7ebec9848a7d9788572961f7, type: 3}
   m_Name: 
@@ -3432,6 +3436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 2
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &1302365797
 BoxCollider:
@@ -3453,7 +3458,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302365794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3738,6 +3743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 4
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &1330948822
 BoxCollider:
@@ -3759,7 +3765,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330948819}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3895,6 +3901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 7
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &1346468603
 BoxCollider:
@@ -3916,7 +3923,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346468600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4745,7 +4752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1680138248
 Transform:
   m_ObjectHideFlags: 0
@@ -5528,6 +5535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IDCheckpoint: 3
+  InspectorIsEnter: 0000000000000000
   InspectorCheckpointArray: 0000000000000000
 --- !u!65 &2099344023
 BoxCollider:
@@ -5549,7 +5557,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099344020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
